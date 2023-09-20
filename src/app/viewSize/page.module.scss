@@ -1,0 +1,71 @@
+$globalWidth: 1920;
+$globalHeight: 970;
+// $globalHeight: 1080;
+
+$globalWidth: 1000;
+// 실제 브라우저 사이즈
+$globalHeight: 500;
+// $globalHeight: 1080;
+
+// 기준 사이즈 겸 기준 비율
+$h-ratio: $globalHeight/$globalWidth;
+$w-ratio: $globalWidth/$globalHeight;
+
+$vmin: 100vmin / $globalWidth * $h-ratio;
+
+// vmin을 잡고 , 16:9를 일반적인 상황임을 가정한 상황
+// 이 코드는 min * ratio가 특정 높이 일 때 특정 w 임을 보장하지만
+// min * radio 가 뷰포트보다 큼에 대응하지 못함
+// 예시로 height이 500이여서 500 * 2 일 때 화면 사이즈가 700이면 화면을 넘음
+// 그래서 width: clamp( 1200px, $vmin * 1200, 100vw);
+// 위에서 처럼 clamp를 써서 max와 min을 설정하도록 하는 방법이 있는데
+// 이게 근데 보통 그냥 있는 min max로 된다
+
+$vw: 100vmin / $globalWidth * $w-ratio;
+$vh: 100vmin / $globalHeight;
+
+// 2/1 이여서 min에 2를 곱해야하는데 ... width가 vmin * 2 보다 작으면 넘어가는 상황 발생
+// vimx 값으로 써야
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.test {
+  // width: clamp(90%, $vmin * 1200, 100vw);
+  // 에러 발생 코드
+  // width: $vw * 1920;
+  // height: $vh * 970;
+
+  width: $vw * 1000;
+  height: $vh * 500;
+  background-image: linear-gradient(90deg, red 0%, orange 20%, yellow 40%, green 60%, blue 80%, red 100%);
+  border: black solid 2px;
+  --min: #{$vmin};
+  --w: #{$w-ratio};
+  --h: #{$h-ratio};
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+
+  span {
+    color: black;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+  }
+}
+
+.test2 {
+  width: 120px;
+
+  height: 10vh;
+
+  background-color: red;
+}

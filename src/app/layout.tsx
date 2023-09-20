@@ -1,10 +1,9 @@
 import React from 'react'
-import './globals.css'
+import './globals.scss'
+import '@/view/scss/reset.scss'
 import type { Metadata } from 'next'
 
 import { Inter } from 'next/font/google'
-
-import Praddle from '@/repository/provider/paddle'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,9 +15,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Praddle>{children}</Praddle>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

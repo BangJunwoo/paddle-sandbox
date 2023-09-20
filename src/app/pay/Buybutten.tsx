@@ -25,7 +25,7 @@ const Buybutten = (props: Props) => {
           Paddle.Checkout.open({
             settings: {
               displayMode: 'overlay',
-              theme: 'light',
+              theme: 'dark',
               locale: 'ko',
             },
             items: itemsList,

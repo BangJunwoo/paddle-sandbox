@@ -1,0 +1,16 @@
+.innerComp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: black;
+  outline: 1px solid black;
+}
+
+.main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
