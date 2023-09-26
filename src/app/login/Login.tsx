@@ -7,6 +7,9 @@ import { Schema, schema } from '@/model/zod/emailLogin'
 import { StepinCall } from '@/repository/api/StepinApi'
 import Link from 'next/link'
 
+import { useAppSelector } from '@/model/store/hooks'
+import { selectCount } from '@/model/features/counterSlice'
+
 // import { joinWithSlash, objectToQueryString } from '@/model/apis/urlUtils'
 const server = {
   auth: false,
@@ -18,6 +21,8 @@ const server = {
 type Props = {}
 
 const Login = (props: Props) => {
+  const AS = useAppSelector(selectCount)
+
   const {
     register,
     handleSubmit,
@@ -59,6 +64,7 @@ const Login = (props: Props) => {
         </button>
       </form>
       <Link href="/products">go to user info</Link>
+      <div>{AS}</div>
     </div>
   )
 }

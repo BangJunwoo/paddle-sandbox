@@ -22,6 +22,7 @@ export async function create({ name, value, httpOnly, maxAge, secure }: Cookies)
     path: '/',
     maxAge,
     secure,
+    sameSite: 'strict',
   })
 }
 

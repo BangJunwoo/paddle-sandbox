@@ -60,9 +60,10 @@ export const AuthFetch = async (url: string, data: anyObject, method: string) =>
   }
   let response = await auth(false)
   const temp = response.data
+  console.log('temp', temp)
   try {
     if (temp.statusCode === 403) {
-      if (temp.message === '토큰이 만료되었습니다.') {
+      if (temp.error === 'TOKEN_EXPIRED') {
         response = await auth(true)
       } else {
         cookieDelete('refreshtoken')
@@ -71,6 +72,8 @@ export const AuthFetch = async (url: string, data: anyObject, method: string) =>
       }
     }
   } catch (err: any) {
+    cookieDelete('refreshtoken')
+    cookieDelete('accesstoken')
     return { status: 500, statusText: 'Next Server Error1', data: { ...err } }
   }
   const tempData = await response.data

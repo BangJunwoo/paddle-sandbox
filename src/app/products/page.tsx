@@ -4,9 +4,13 @@ import Link from 'next/link'
 import { StepinCall, ServerFetchOption } from '@/repository/api/StepinApi'
 import { joinWithSlash, objectToQueryString } from '@/model/apis/urlUtils'
 
+import { increment, decrement, incrementByAmount } from '@/model/features/counterSlice'
+import { useAppDispatch } from '@/model/store/hooks'
+
 type Props = {}
 
 const page = (props: Props) => {
+  const dispatch = useAppDispatch()
   return (
     <div>
       <button
@@ -34,6 +38,13 @@ const page = (props: Props) => {
         테스트
       </button>
       <Link href="/login">login</Link>
+      <button
+        onClick={() => {
+          dispatch(incrementByAmount(4))
+        }}
+      >
+        1234
+      </button>
     </div>
   )
 }

@@ -1,2 +1,22 @@
 @forward './mixins';
 @forward './variables';
+@use './mixins' as *;
+@use './variables' as *;
+
+:root {
+  --px: #{$root-font};
+  font-size: $root-font * $px;
+
+  @include RootFont(9);
+  @include RootFont(10);
+  @include RootFont(11);
+  @include RootFont(12);
+  @include RootFont(13);
+  @include RootFont(14);
+  @include RootFont(15);
+  @include RootFont(16);
+}
+
+* {
+  @include FontHeight();
+}

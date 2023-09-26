@@ -1,1 +1,21 @@
 @use './variables' as *;
+
+@mixin FontHeight($multiple: 1.6, $unit: $rem, $line: $line-height) {
+  $a: calc($current * $multiple);
+  $font: calc($current * $multiple * $unit);
+  $c: $root-font * $multiple * $line;
+
+  $b: calc($c / ($current * $multiple));
+  font-size: $font;
+  line-height: $b;
+}
+
+// a x b => c
+// c / a => b
+
+@mixin RootFont($size: 10) {
+  &[data-font='#{$size}'] {
+    --px: #{$size};
+    font-size: $size * $px;
+  }
+}

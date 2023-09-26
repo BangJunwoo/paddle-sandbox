@@ -33,9 +33,17 @@
 
 ## user data 관리
 
-- [ ] redux toolkit 설정
-- [ ] redux persist 설정 > dexie 로 대체하기
+- [x] redux toolkit 설정
+- [ ] redux persist 설정 > dexie 로 대체하기 > 공수가 너무 크게 들어서 미룸
+
+  - 관리되야하는 것들
+
+    - 유저 정보
+    - 그 외 정보 후보 > 연동을 위한 고유번호
+    - 유저 인터페이스 데이터 보존
+
   - [ ] 미들웨어로 persist를 dexie로 구현하기
+
 - [ ] auth wrap > 인증 방법에 대해 고려해볼 필요 있음
 - [ ] redux provider 의 정보가 paddle에 필요함
   - paddle 보다 상위에 provider 있어야 데이터를 가져올 때 인증함
