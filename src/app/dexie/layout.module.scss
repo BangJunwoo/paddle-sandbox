@@ -1,0 +1,10 @@
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  top: 2rem;
+  right: 1rem;
+  background-color: beige;
+}

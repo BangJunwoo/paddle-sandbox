@@ -15,9 +15,7 @@ listenerMiddleware.startListening({
   },
   effect: (action, listenerApi) => {
     const user = listenerApi.getState()
-
     console.log('meta', action.meta)
-
     console.log('getState', action, user)
   },
 })

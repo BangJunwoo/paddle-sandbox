@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../features/counterSlice'
 import _ from 'lodash'
 
 import logger from 'redux-logger'
 import { batchedSubscribe } from 'redux-batched-subscribe'
 import { listenerMiddleware } from './listenerMiddleware'
 // ...
+import tnReducer from '../features/tournamentSlice'
+import counterReducer from '../features/counterSlice'
 
 const reducer = {
   counter: counterReducer,
+  tournament: tnReducer,
 }
 
 const preloadedState = {

@@ -1,12 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
+import Setting from './Setting'
 
 type Props = {}
 
 const page = (props: Props) => {
   return (
     <div>
-      <Link href="/tournament">이전</Link>
+      <h2>설정창</h2>
+      <Setting />
+      <Link href="/redux/result">결과</Link>
     </div>
   )
 }

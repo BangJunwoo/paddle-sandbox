@@ -1,4 +1,5 @@
 import React from 'react'
+import ReduxProvider from '@/repository/provider/reduxProvider'
 
 type Props = {
   children: React.ReactNode
@@ -7,8 +8,7 @@ type Props = {
 const layout = ({ children }: Props) => {
   return (
     <div>
-      <h1>토너먼트</h1>
-      {children}
+      <ReduxProvider>{children}</ReduxProvider>
     </div>
   )
 }

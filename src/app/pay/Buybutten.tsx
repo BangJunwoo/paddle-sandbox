@@ -1,11 +1,9 @@
 'use client'
 
 import React, { useContext } from 'react'
-import Data from '@/static/PAYMENTS.json'
+import Data from '@/static/PADDLEPAYMENTS.json'
 
 import { PaddleContext } from '@/repository/provider/paddle'
-
-type Props = {}
 
 const itemsList = [
   {
@@ -14,11 +12,11 @@ const itemsList = [
   },
 ]
 
-const Buybutten = (props: Props) => {
+const Buybutten = () => {
   const load = useContext(PaddleContext)
   return (
     <div>
-      {`${load}`}
+      {`로드 상태 : ${load}`}
       <a
         href="#"
         onClick={() => {
