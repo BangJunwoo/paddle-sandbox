@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   // auth 에서 request 에서 cookies 정보 얻어야댐
   const data = { ...body, ...getCookies() }
-  console.log(data)
+  console.log('data', data)
 
   return NextResponse.json(data, {
     headers: {
