@@ -1,3 +1,4 @@
+'use client'
 // listenerMiddleware.ts
 import { createListenerMiddleware, addListener } from '@reduxjs/toolkit'
 import type { TypedStartListening, TypedAddListener } from '@reduxjs/toolkit'
