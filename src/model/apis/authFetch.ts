@@ -60,7 +60,6 @@ export const AuthFetch = async (url: string, data: anyObject, method: string) =>
   }
   let response = await auth(false)
   const temp = response.data
-  console.log('temp', temp)
   try {
     if (temp.statusCode === 403) {
       if (temp.error === 'TOKEN_EXPIRED') {

@@ -1,5 +1,5 @@
 'use client'
-import { store } from '@/model/store/store'
+import { store } from '@/model/redux/store/store'
 import { Provider } from 'react-redux'
 import React from 'react'
 

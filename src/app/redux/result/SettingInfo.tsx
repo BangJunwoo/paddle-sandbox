@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import { useAppSelector } from '@/model/store/hooks'
-import { selectTn } from '@/model/features/tournamentSlice'
+import { useAppSelector } from '@/model/redux/store/hooks'
+import { selectTn } from '@/model/redux/features/tournamentSlice'
 
 type Props = {}
 

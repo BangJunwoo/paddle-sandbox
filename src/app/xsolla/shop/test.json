@@ -1,0 +1,159 @@
+{
+  "has_more": false,
+  "items": [
+    {
+      "item_id": 522597,
+      "sku": "WMP",
+      "type": "virtual_currency",
+      "name": "메소",
+      "description": null,
+      "image_url": null,
+      "price": { "amount": "0.10", "amount_without_discount": "0.10", "currency": "USD" },
+      "virtual_prices": [],
+      "can_be_bought": true,
+      "promotions": [],
+      "limits": null,
+      "periods": [],
+      "attributes": [],
+      "is_free": false,
+      "groups": [],
+      "vp_rewards": [],
+      "inventory_options": { "consumable": { "usages_count": 1 }, "expiration_period": null }
+    },
+    {
+      "item_id": 522598,
+      "sku": "test_item",
+      "type": "virtual_good",
+      "name": "Revival Crystal",
+      "description": "Allows to instantly revive one of your fallen allies",
+      "image_url": "https://cdn3.xsolla.com/img/misc/images/fb5412f8d70c8df52ae3dd614fd06f68.png",
+      "price": { "amount": "1.99", "amount_without_discount": "1.99", "currency": "USD" },
+      "virtual_prices": [],
+      "can_be_bought": true,
+      "promotions": [],
+      "limits": null,
+      "periods": [],
+      "attributes": [],
+      "is_free": false,
+      "groups": [],
+      "virtual_item_type": "consumable",
+      "vp_rewards": [],
+      "inventory_options": { "consumable": { "usages_count": 1 }, "expiration_period": null }
+    },
+    {
+      "item_id": 531182,
+      "sku": "test_item2",
+      "type": "virtual_good",
+      "name": "Hello world",
+      "description": null,
+      "image_url": "https://static.xsolla.com/misc/publisher_account/virtual_item_default_image.png",
+      "price": null,
+      "virtual_prices": [
+        {
+          "description": null,
+          "image_url": null,
+          "item_id": 522597,
+          "sku": "WMP",
+          "name": "메소",
+          "type": "virtual_currency",
+          "amount": 99,
+          "amount_without_discount": 99,
+          "calculated_price": { "amount": "99.00", "amount_without_discount": "99.00" },
+          "is_default": true
+        }
+      ],
+      "can_be_bought": true,
+      "promotions": [],
+      "limits": null,
+      "periods": [],
+      "attributes": [],
+      "is_free": false,
+      "groups": [],
+      "virtual_item_type": "non_consumable",
+      "vp_rewards": [],
+      "inventory_options": { "consumable": null, "expiration_period": null }
+    },
+    {
+      "item_id": 533398,
+      "sku": "test_bundle",
+      "type": "bundle",
+      "name": "Hello xsolla",
+      "bundle_type": "standard",
+      "description": null,
+      "image_url": "https://cdn3.xsolla.com/img/misc/merchant/default-dc-image.png",
+      "price": null,
+      "virtual_prices": [
+        {
+          "description": null,
+          "image_url": null,
+          "item_id": 522597,
+          "sku": "WMP",
+          "name": "메소",
+          "type": "virtual_currency",
+          "amount": 96,
+          "amount_without_discount": 96,
+          "calculated_price": { "amount": "96.00", "amount_without_discount": "96.00" },
+          "is_default": true
+        }
+      ],
+      "can_be_bought": true,
+      "promotions": [],
+      "limits": null,
+      "periods": [],
+      "attributes": [],
+      "is_free": false,
+      "groups": [],
+      "total_content_price": null,
+      "content": [
+        {
+          "item_id": 522598,
+          "sku": "test_item",
+          "type": "virtual_good",
+          "name": "Revival Crystal",
+          "description": "Allows to instantly revive one of your fallen allies",
+          "image_url": "https://cdn3.xsolla.com/img/misc/images/fb5412f8d70c8df52ae3dd614fd06f68.png",
+          "price": { "amount": "1.99", "amount_without_discount": "1.99", "currency": "USD" },
+          "virtual_prices": [],
+          "attributes": [],
+          "is_free": false,
+          "groups": [],
+          "virtual_item_type": "consumable",
+          "inventory_options": { "consumable": { "usages_count": 1 }, "expiration_period": null },
+          "quantity": 4,
+          "limits": null
+        },
+        {
+          "item_id": 531182,
+          "sku": "test_item2",
+          "type": "virtual_good",
+          "name": "Hello world",
+          "description": null,
+          "image_url": "https://static.xsolla.com/misc/publisher_account/virtual_item_default_image.png",
+          "price": null,
+          "virtual_prices": [
+            {
+              "description": null,
+              "image_url": null,
+              "item_id": 522597,
+              "sku": "WMP",
+              "name": "메소",
+              "type": "virtual_currency",
+              "amount": 99,
+              "amount_without_discount": 99,
+              "calculated_price": { "amount": "99.00", "amount_without_discount": "99.00" },
+              "is_default": true
+            }
+          ],
+          "attributes": [],
+          "is_free": false,
+          "groups": [],
+          "virtual_item_type": "non_consumable",
+          "inventory_options": { "consumable": null, "expiration_period": null },
+          "quantity": 4,
+          "limits": null
+        }
+      ],
+      "vp_rewards": []
+    }
+  ]
+}

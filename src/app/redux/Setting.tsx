@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { schema, Schema } from '@/model/zod/tournamentZod'
 
-import { useAppDispatch } from '@/model/store/hooks'
-import { init } from '@/model/features/tournamentSlice'
+import { useAppDispatch } from '@/model/redux/store/hooks'
+import { init } from '@/model/redux/features/tournamentSlice'
 
 import { redirect, useRouter } from 'next/navigation'
 

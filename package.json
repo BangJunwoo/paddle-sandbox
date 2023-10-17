@@ -27,6 +27,7 @@
     "eslint-config-next": "13.4.19",
     "lodash": "^4.17.21",
     "next": "^13.5.4",
+    "openapi-fetch": "^0.7.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.1",
@@ -46,6 +47,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
+    "openapi-typescript": "^6.7.0",
     "prettier": "^3.0.3",
     "sass": "^1.67.0"
   },

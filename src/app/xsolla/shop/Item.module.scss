@@ -1,0 +1,27 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    padding: 16px 8px;
+
+    .sku {
+      color: #666;
+      font-size: 14px;
+    }
+    .label {
+      color: #333;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .button {
+      border: 1px solid #000;
+      border-radius: 8px;
+    }
+  }
+}

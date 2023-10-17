@@ -1,9 +1,8 @@
 'use client'
-import React, { useEffect } from 'react'
+import React from 'react'
+import xsollaIds from '@/static/XSOLLA.json'
 
-type Props = {}
-
-const Xsolla = (props: Props) => {
+const Xsolla = () => {
   return (
     <div>
       <div id="xl_auth">a</div>
@@ -11,14 +10,14 @@ const Xsolla = (props: Props) => {
         onClick={async () => {
           const { Widget } = await import('@xsolla/login-sdk')
           const xl = new Widget({
-            projectId: '432091',
+            projectId: xsollaIds.loginProjectId,
             preferredLocale: 'en_US',
           })
           xl.mount('xl_auth')
           xl.open()
         }}
       >
-        Babka Login Popup
+        Login
       </button>
     </div>
   )
