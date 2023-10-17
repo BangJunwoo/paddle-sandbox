@@ -4,19 +4,18 @@ import createClient from 'openapi-fetch'
 import { paths } from '@/repository/@types/xsollaStore'
 import { cookies } from 'next/headers'
 
-import type { ServerFetchOption } from '@/repository/api/XsollaStore'
+import type { ServerFetchOption } from '@/repository/api/XsollaClient'
 const getCookies = () => {
   const cookieStore = cookies()
   const accesstoken = cookieStore.get('xsollaToken')
-  return {
-    accesstoken: accesstoken?.value,
-  }
+  return accesstoken?.value
 }
 
 export async function POST(request: Request) {
   // const { searchParams } = new URL(request.url)
 
   const body = await request.json()
+  console.log(body)
 
   if (typeof body.server === 'undefined') {
     return NextResponse.json(
@@ -27,7 +26,6 @@ export async function POST(request: Request) {
       }
     )
   }
-  // 검증
 
   const currentToken = getCookies()
 
@@ -37,7 +35,6 @@ export async function POST(request: Request) {
   })
   const { url, method } = body.server as ServerFetchOption
   delete body.server
-
   let res
   if (method === 'GET') {
     const data = { ...(body as Parameters<typeof GET>[1]) }

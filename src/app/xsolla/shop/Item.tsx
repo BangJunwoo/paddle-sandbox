@@ -1,13 +1,15 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Item.module.scss'
-import { paths } from '@/repository/@types/xsollaStore'
 import Image from 'next/image'
+import { paths } from '@/repository/@types/xsollaStore'
+import { addCart } from '@/repository/api/XsollaClient'
 type Test = NonNullable<
   paths['/v2/project/{project_id}/items']['get']['responses']['200']['content']['application/json']['items']
 >[number]
 
 const Item = (props: Test) => {
+  const [quantity, setQuantity] = useState(1)
   return (
     <div className={styles.wrap}>
       <div>image</div>
@@ -24,9 +26,19 @@ const Item = (props: Test) => {
           width={200}
           height={200}
           style={{ objectFit: 'cover' }}
+          unoptimized
         />
-
-        <button className={styles.button} onClick={() => {}}>
+        <input
+          type="number"
+          defaultValue={quantity}
+          onChange={(e) => setQuantity(Number(e.currentTarget.value))}
+        ></input>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (props.sku) addCart(props.sku, quantity)
+          }}
+        >
           Buy Now!
         </button>
       </div>

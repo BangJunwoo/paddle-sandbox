@@ -11,9 +11,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         ------
         <Link href="/xsolla/shop">Shop</Link>
         {/* <Link href='/xsolla'>Home</Link> */}
+        <CartDiv />
       </div>
       {children}
-      <CartDiv />
     </>
   )
 }

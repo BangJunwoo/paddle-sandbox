@@ -10,7 +10,6 @@ const page = async (props: Props) => {
 
   return (
     <div>
-      {JSON.stringify(aww)}
       <div>
         {data.map((item) => (
           <Item key={item.item_id} {...item} />
