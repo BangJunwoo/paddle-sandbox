@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import xsollaIds from '@/static/XSOLLA.json'
+import xsollaIds from '@/XSOLLA.json'
 
 const Xsolla = () => {
   return (

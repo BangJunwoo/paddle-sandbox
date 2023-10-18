@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useContext } from 'react'
-import Data from '@/static/PADDLEPAYMENTS.json'
+import Data from '@/PADDLEPAYMENTS.json'
 
 import { PaddleContext } from '@/repository/provider/paddle'
 

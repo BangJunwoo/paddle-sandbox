@@ -1,4 +1,4 @@
-import xsollaIds from '@/static/XSOLLA.json'
+import xsollaIds from '@/XSOLLA.json'
 // generated from openapi-typescript
 import { xsollaStoreInstance } from '@/repository/api/xsolla-interceptor'
 
