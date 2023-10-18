@@ -18,8 +18,8 @@ const CartDiv = () => {
   if (cart === undefined) return <div>cart가 비었음</div>
   return (
     <div>
-      장바구니는 전역에 선언할 것이고 Dexie를 쓸껀데 이유는 장바구니 데이터 저장에 대한 로컬 저장이 있어야 데이터 유지가
-      되고 프로바이더 없이 저장소에 접근할 수 있음
+      {/* 장바구니는 전역에 선언할 것이고 Dexie를 쓸껀데 이유는 장바구니 데이터 저장에 대한 로컬 저장이 있어야 데이터 유지가
+      되고 프로바이더 없이 저장소에 접근할 수 있음 */}
       <p>아이디 : {cart.cart_id}</p>
       <p>가격 : {JSON.stringify(cart.price)}</p>
       <p>무료구매 가능 여부 : {cart.is_free}</p>

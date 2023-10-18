@@ -27,22 +27,30 @@ const paddleProvider = ({ children, access_token }) => {
   if (access_token === '' || access_token == null) return <div>loading...</div>
 
   return (
-    <>
+    <div>
       <Script
         id="xsolla-paystation-script"
         src="//cdn.xsolla.net/embed/paystation/1.2.7/widget.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          console.log('load token', JSON.stringify(options))
-          // XPayStationWidget.init(options)
+          console.log(XPayStationWidget.eventTypes)
+          XPayStationWidget.on(XPayStationWidget.eventTypes.OPEN, function (event, data) {
+            console.log('status', event, data) // {
+            //   email: "main@example.com",
+            //   invoice: 140381877,
+            //   status: "invoice",
+            //   userId: "user_1",
+            //   virtualCurrencyAmount: 100
+            // }
+          })
+          XPayStationWidget.init(options)
+          XPayStationWidget.open()
+
           setLoad(true)
         }}
       ></Script>
-      <PaddleContext.Provider value={load}>
-        <button data-xpaystation-widget-open>Buy Credits</button>
-        {children}
-      </PaddleContext.Provider>
-    </>
+      <button data-xpaystation-widget-open>다시 결제 시도하기</button>
+    </div>
   )
 }
 

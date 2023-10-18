@@ -3,5 +3,9 @@
 body {
   height: 100vh;
   @include FontHeight();
-  background-color: aquamarine;
+
+  button {
+    outline: 2px solid #666;
+    padding: 4px 16px;
+  }
 }

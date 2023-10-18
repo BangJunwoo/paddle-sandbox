@@ -7,6 +7,7 @@ import { PaddleContext } from '@/repository/provider/paddle'
 
 const itemsList = [
   {
+    // @ts-ignore
     priceId: Data.products[0].price,
     quantity: 1,
   },

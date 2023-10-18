@@ -107,7 +107,12 @@ export const deleteCart = async () => {
 
 export const createOrder = async () => {
   const project_id = xsollaIds.projectId
-
+  const user = {
+    id: '81716380-9356-427f-9e0e-0f7a6f6ae953',
+    name: null,
+    email: 'mineclover@naver.com',
+    country: 'US',
+  }
   const data = await XStoreFetch({
     params: {
       path: { project_id: project_id },
@@ -130,6 +135,7 @@ export const createOrder = async () => {
         },
       },
     },
+    user,
 
     server: { url: '/v2/project/{project_id}/payment/cart', method: 'POST' },
   })
