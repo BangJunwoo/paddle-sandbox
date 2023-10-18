@@ -1,6 +1,6 @@
 import React from 'react'
 import Item from './Item'
-import { getItems } from '@/repository/api/XsollaStore'
+import { getItems } from '@/repository/api/anonymousXsollaStore'
 
 type Props = {}
 

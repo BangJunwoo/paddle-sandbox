@@ -1,28 +1,21 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import { openCart, deleteCart } from '@/repository/api/XsollaClient'
-import { paths } from '@/repository/@types/xsollaStore'
+import React from 'react'
+import { deleteCart, createOrder } from '@/repository/api/XStoreFetchClient'
+import { useRouter } from 'next/navigation'
+import { db } from '@/model/dexie/dexie'
+import { useLiveQuery } from 'dexie-react-hooks'
 
-type Test = NonNullable<
-  paths['/v2/project/{project_id}/cart']['get']['responses']['200']['content']['application/json']
->
+const dexieDelete = () => {
+  const c = db.cart.clear()
+  return Promise.allSettled([c])
+  // const is = a.every((v) => v.status === 'fulfilled')
+}
 
-type Props = {}
+const CartDiv = () => {
+  const cart = useLiveQuery(() => db.cart.get('current'))
+  const router = useRouter()
 
-type SKU = string
-
-const CartDiv = (props: Props) => {
-  const [load, setLoad] = useState(false)
-  const [cart, setCart] = useState<Test>({})
-  useEffect(() => {
-    const getData = async () => {
-      const data = await openCart()
-      setLoad(() => true)
-      setCart(() => data)
-    }
-    getData()
-  }, [])
-  if (load === false) return <div>loading...</div>
+  if (cart === undefined) return <div>cart가 비었음</div>
   return (
     <div>
       장바구니는 전역에 선언할 것이고 Dexie를 쓸껀데 이유는 장바구니 데이터 저장에 대한 로컬 저장이 있어야 데이터 유지가
@@ -35,9 +28,20 @@ const CartDiv = (props: Props) => {
       <button
         onClick={() => {
           deleteCart()
+          dexieDelete()
         }}
       >
         장바구니 비우기
+      </button>
+      <button
+        onClick={async () => {
+          const data = await createOrder()
+          console.log('data', data)
+          router.replace(`/xsolla/buy?token=${data.token}`)
+          // router.replace(`https://sandbox-secure.xsolla.com/paystation4/?token=${data.token}`)
+        }}
+      >
+        Buy Now!
       </button>
     </div>
   )

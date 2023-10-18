@@ -1,5 +1,10 @@
 import Dexie, { Table } from 'dexie'
 import { dexieStore, Round, User, MatchUp } from '@/model/zod/dexieZod'
+import { paths } from '@/repository/@types/xsollaStore'
+
+type Cart = NonNullable<
+  paths['/v2/project/{project_id}/cart']['get']['responses']['200']['content']['application/json']
+>
 
 export class MySubClassedDexie extends Dexie {
   // 'friends' is added by dexie when declaring the stores()
@@ -7,10 +12,11 @@ export class MySubClassedDexie extends Dexie {
   round!: Table<Round>
   user!: Table<User>
   matchUp!: Table<MatchUp>
+  cart!: Table<Cart>
 
   constructor() {
     super('tournamant')
-    this.version(1).stores(dexieStore)
+    this.version(2).stores(dexieStore)
   }
 }
 

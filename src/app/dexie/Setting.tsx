@@ -9,6 +9,7 @@ const dexieDelete = () => {
   const b = db.round.clear()
   const c = db.matchUp.clear()
   return Promise.allSettled([a, b, c])
+  // const is = a.every((v) => v.status === 'fulfilled')
 }
 
 const Setting = () => {

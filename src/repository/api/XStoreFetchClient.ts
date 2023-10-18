@@ -18,7 +18,7 @@ export interface ServerFetchBody {
  * @param data
  * @returns
  */
-export const XSfetch = async (data: ServerFetchBody) => {
+export const XStoreFetch = async (data: ServerFetchBody) => {
   const config = {
     method: 'POST',
     headers: {
@@ -33,7 +33,7 @@ export const XSfetch = async (data: ServerFetchBody) => {
     const result = await response.json()
     return result
   } catch (err: any) {
-    return { status: 500, statusText: 'Next Server Error3', data: err }
+    return { status: 500, statusText: 'Next Server XStorefetch Error', data: err }
   }
 }
 
@@ -44,7 +44,7 @@ export const XSfetch = async (data: ServerFetchBody) => {
  */
 export const TestItems = async () => {
   const project_id = xsollaIds.projectId
-  const data = await XSfetch({
+  const data = await XStoreFetch({
     params: {
       path: { project_id: project_id },
     },
@@ -60,7 +60,7 @@ export const TestItems = async () => {
 export const openCart = async () => {
   const project_id = xsollaIds.projectId
 
-  const data = await XSfetch({
+  const data = await XStoreFetch({
     params: {
       path: { project_id: project_id },
       query: {
@@ -80,7 +80,7 @@ export const openCart = async () => {
 export const addCart = async (sku: string, quantity: number) => {
   const project_id = xsollaIds.projectId
 
-  const data = await XSfetch({
+  const data = await XStoreFetch({
     params: {
       path: { project_id: project_id, item_sku: sku },
     },
@@ -95,12 +95,43 @@ export const addCart = async (sku: string, quantity: number) => {
 export const deleteCart = async () => {
   const project_id = xsollaIds.projectId
 
-  const data = await XSfetch({
+  const data = await XStoreFetch({
     params: {
       path: { project_id: project_id },
     },
 
     server: { url: '/v2/project/{project_id}/cart/clear', method: 'PUT' },
+  })
+  return data
+}
+
+export const createOrder = async () => {
+  const project_id = xsollaIds.projectId
+
+  const data = await XStoreFetch({
+    params: {
+      path: { project_id: project_id },
+    },
+    body: {
+      sandbox: true,
+      settings: {
+        ui: {
+          theme: '63295a9a2e47fab76f7708e1',
+          desktop: {
+            header: {
+              is_visible: true,
+              visible_logo: true,
+              visible_name: true,
+              visible_purchase: true,
+              type: 'normal',
+              close_button: false,
+            },
+          },
+        },
+      },
+    },
+
+    server: { url: '/v2/project/{project_id}/payment/cart', method: 'POST' },
   })
   return data
 }

@@ -1,7 +1,7 @@
 import 'server-only'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { xsollaStoreInstance } from '@/repository/api/xsolla-interceptor'
+import { xsollaLoginInstance } from '@/repository/api/xsolla-interceptor'
 
 import type { ServerFetchOption } from '@/repository/api/XStoreFetchClient'
 const getCookies = () => {
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
   const currentToken = getCookies()
   // body 안에 openapi-fetch body가 있는 구조
-  const { GET, POST, PUT, DELETE } = xsollaStoreInstance
+  const { GET, POST, PUT, DELETE } = xsollaLoginInstance
   const { url, method } = body.server as ServerFetchOption
   delete body.server
   let res

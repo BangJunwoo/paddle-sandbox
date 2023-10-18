@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import styles from './Item.module.scss'
 import Image from 'next/image'
 import { paths } from '@/repository/@types/xsollaStore'
-import { addCart } from '@/repository/api/XsollaClient'
+import { addCart, openCart } from '@/repository/api/XStoreFetchClient'
+import { db } from '@/model/dexie/dexie'
 type Test = NonNullable<
   paths['/v2/project/{project_id}/items']['get']['responses']['200']['content']['application/json']['items']
 >[number]
@@ -35,11 +36,15 @@ const Item = (props: Test) => {
         ></input>
         <button
           className={styles.button}
-          onClick={() => {
-            if (props.sku) addCart(props.sku, quantity)
+          onClick={async () => {
+            if (props.sku) {
+              await addCart(props.sku, quantity)
+              const data = await openCart()
+              db.cart.put(data)
+            }
           }}
         >
-          Buy Now!
+          Add Cart!
         </button>
       </div>
     </div>

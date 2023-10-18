@@ -49,8 +49,13 @@ const primaryIsId = (data: ZodObject<any>) => {
     .join(',')
 }
 
+//-------//
+
+const cart = '++cart_id,is_free,price,items,promotions'
+
 export const dexieStore = {
   round: primaryIsId(roundSchema),
   user: primaryIsId(userSchema),
   matchUp: primaryIsId(matchUpSchema),
+  cart,
 }
